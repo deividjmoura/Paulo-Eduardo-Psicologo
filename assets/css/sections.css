@@ -70,3 +70,63 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem
   .fixo{position:static}
   .cta .btn{flex:1 1 100%}
 }
+
+/* Refinamento responsivo: menos espaço vazio e cards compactos. */
+section{padding:clamp(3.25rem,6.5vw,5.75rem) 0}
+.topo{margin-bottom:2rem}
+.posts{gap:1rem;margin-bottom:2rem}
+.post{min-width:0}
+.thumb{aspect-ratio:16/9;overflow:hidden;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s var(--ease)}
+.post:hover .thumb img{transform:scale(1.045)}
+.post-c{padding:1.1rem 1.2rem 1.25rem;gap:.55rem}
+.post-c p{font-size:.94rem;line-height:1.5}
+.post.reveal-left,.post.reveal-right{opacity:0;transform:translateX(34px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.post.reveal-left{transform:translateX(-34px)}
+.post.reveal-left.in,.post.reveal-right.in{opacity:1;transform:none}
+@media(max-width:860px){
+  section{padding:2.7rem 0}
+  .wrap{width:min(100% - 2rem,1160px)}
+  .hero{padding:5.25rem 0 2.5rem}
+  .hero .wrap,.abo .wrap{gap:1.5rem}
+  .selo{width:min(62%,250px)}
+  .topo{gap:.75rem;margin-bottom:1.35rem}
+  .topo p{font-size:.92rem;max-width:34rem}
+  .formas,.duo{gap:.75rem}
+  .forma{padding:1.25rem;min-height:0}
+  .forma h3{font-size:1.35rem}
+  .forma p{font-size:.91rem}
+  .pan{padding:1.35rem;min-height:0;border-radius:22px}
+  .pan .big{font-size:6.5rem;top:-.65rem;right:1rem}
+  .pan h3{font-size:1.65rem;margin-bottom:.4rem}
+  .pan p{font-size:.9rem;line-height:1.5}
+  .fixo>p{margin-top:.8rem}
+  .esp{margin-top:1.1rem;padding:1rem 1.1rem}
+  .passos{padding-left:2.5rem}
+  .passos li{padding-bottom:1.8rem}
+  .passos li::before{left:-2.5rem}
+  .passos p{font-size:1.25rem}
+  .posts{grid-template-columns:1fr;gap:.7rem;margin-bottom:1.4rem}
+  .post{display:grid;grid-template-columns:108px minmax(0,1fr);min-height:0;border-radius:18px}
+  .thumb{aspect-ratio:1/1;height:100%;min-height:108px}
+  .thumb svg{width:34px;height:34px}
+  .post-c{padding:.8rem .9rem;gap:.35rem;min-width:0}
+  .post-c small{font-size:.72rem;gap:.35rem;flex-wrap:wrap}
+  .post-c small svg{width:13px;height:13px}
+  .post-c p{font-size:.84rem;line-height:1.4}
+  .ver{font-size:.84rem}
+  .soc .cta{gap:.55rem}
+  .soc .cta .btn{flex:1 1 auto;width:auto;min-width:0;padding:.8rem 1rem;font-size:.88rem}
+  .ct h2{margin-bottom:1.25rem}
+  .ct .info{margin-top:1.2rem}
+  footer{padding:1.3rem 0 5rem}
+  footer .wrap{font-size:.78rem;gap:.35rem}
+}
+@media(max-width:380px){
+  .post{grid-template-columns:88px minmax(0,1fr)}
+  .thumb{min-height:100px}
+  .post-c{padding:.65rem .7rem}
+  .soc .cta{flex-direction:column}
+  .soc .cta .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.post.reveal-left,.post.reveal-right{opacity:1;transform:none}}
