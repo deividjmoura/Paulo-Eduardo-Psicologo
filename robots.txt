@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://paulopsicologo.vercel.app/sitemap.xml
