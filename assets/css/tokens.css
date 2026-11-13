@@ -1,0 +1,6 @@
+:root{
+  --floresta:#0e2b22; --verde:#1f6a4a; --salvia:#a8d5ba; --musgo:#2f5d49;
+  --areia:#e2dac6; --areia-2:#d6cdb6; --papel:#ece6d6; --tinta:#16231d; --suave:#4f5d55;
+  --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1); --raio:22px; --topo:4.5rem;
+}
