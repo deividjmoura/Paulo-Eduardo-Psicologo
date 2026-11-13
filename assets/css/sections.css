@@ -130,3 +130,18 @@ section{padding:clamp(3.25rem,6.5vw,5.75rem) 0}
   .soc .cta .btn{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.post.reveal-left,.post.reveal-right{opacity:1;transform:none}}
+
+/* Entradas laterais solicitadas: somente em telas móveis. O desktop permanece igual. */
+.post.reveal-left,.post.reveal-right{opacity:1;transform:none}
+@media(max-width:860px){
+  .forma.r,.pan.r{transform:translateX(30px)}
+  .forma.r:nth-child(odd),.pan.r:nth-child(odd){transform:translateX(-30px)}
+  .forma.r.in,.pan.r.in{transform:none}
+  .post.reveal-left,.post.reveal-right{opacity:0;transform:translateX(30px)}
+  .post.reveal-left{transform:translateX(-30px)}
+  .post.reveal-left.in,.post.reveal-right.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .forma.r,.forma.r:nth-child(odd),.pan.r,.pan.r:nth-child(odd),
+  .post.reveal-left,.post.reveal-right{opacity:1;transform:none}
+}
