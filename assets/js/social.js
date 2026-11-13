@@ -13,7 +13,7 @@
     var data=p.data?new Date(p.data+'T12:00:00'):null;
     var dataLabel=data&&!isNaN(data)?data.toLocaleDateString('pt-BR',{day:'numeric',month:'long'}):'';
     var media=p.imagem
-      ?'<div class="thumb"><img src="/'+esc(p.imagem).replace(/^\\//,'')+'" alt="Imagem da publicação" width="640" height="640" '+(i===0?'fetchpriority="high"':'')+'></div>'
+      ?'<div class="thumb"><img src="/'+esc(p.imagem)+'" alt="Imagem da publicação" width="640" height="640" '+(i===0?'fetchpriority="high"':'')+'></div>'
       :'<div class="thumb '+rede+'" aria-hidden="true">'+I[rede]+'</div>';
     var reveal=i%2===0?'reveal-left':'reveal-right';
     return '<a class="post '+reveal+'" href="'+esc(safeUrl(p.url))+'" target="_blank" rel="noopener noreferrer">'+media+
@@ -34,9 +34,16 @@
 
   var cards=box.querySelectorAll('.post');
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){
-      if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}
-    })},{threshold:.08,rootMargin:'0px 0px -12px 0px'});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.08,rootMargin:'0px 0px -12px 0px'});
     cards.forEach(function(card){io.observe(card)});
-  }else{cards.forEach(function(card){card.classList.add('is-visible')})}
+  }else{
+    cards.forEach(function(card){card.classList.add('is-visible')});
+  }
 })();
