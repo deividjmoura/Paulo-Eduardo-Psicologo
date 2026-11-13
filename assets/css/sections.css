@@ -199,3 +199,81 @@ section{padding:clamp(3.25rem,6.5vw,5.75rem) 0}
     transition: none !important;
   }
 }
+
+/* Correções finais mobile: texto completo nos posts e nenhuma rolagem horizontal. */
+@media (max-width: 860px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  main, section, .wrap, .soc, .posts, .post, .post-c {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .wrap {
+    width: calc(100% - 2rem);
+  }
+  .posts {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .post {
+    width: 100%;
+    grid-template-columns: minmax(88px, 30%) minmax(0, 1fr);
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .thumb {
+    width: 100%;
+    min-width: 0;
+    min-height: 112px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    align-self: stretch;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+  }
+  .post-c {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+    padding: .8rem .85rem;
+    gap: .45rem;
+  }
+  .post-c small {
+    min-width: 0;
+    white-space: normal;
+  }
+  .post-c p {
+    min-width: 0;
+    overflow: visible;
+    display: block;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.45;
+    font-size: .84rem;
+  }
+  .post-c .ver {
+    display: block;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  /* Elementos animados não podem aumentar a largura de layout durante a entrada. */
+  .forma.mobile-slide, .pan.mobile-slide,
+  .post.reveal-left, .post.reveal-right {
+    max-width: 100%;
+  }
+}
+@media (max-width: 380px) {
+  .post {
+    grid-template-columns: 84px minmax(0, 1fr);
+  }
+  .post-c { padding: .65rem .7rem; }
+}
