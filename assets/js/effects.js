@@ -26,7 +26,7 @@
   // Abordagem steps
   var steps = [].slice.call(document.querySelectorAll('.passos li'));
 
-  // Sticky Valores panels
+  // Sticky Valores panels + mobile block motion
   var blocks = [].slice.call(document.querySelectorAll('.valor-block'));
   var panels = [].slice.call(document.querySelectorAll('.valores-panel'));
   var activePanel = 0;
@@ -54,8 +54,7 @@
       s.classList.toggle('on', reduce || s.getBoundingClientRect().top < h * .7);
     });
 
-    // Sticky panel switch based on which valor-block is most in view
-    if(blocks.length && panels.length){
+    if(blocks.length){
       var best = 0;
       var bestScore = -Infinity;
       blocks.forEach(function(b, i){
@@ -63,12 +62,20 @@
         var blockCenter = rect.top + rect.height / 2;
         var viewCenter = h / 2;
         var score = -Math.abs(blockCenter - viewCenter);
-        if(rect.bottom > 0 && rect.top < h && score > bestScore){
+        var visible = rect.bottom > 40 && rect.top < h - 40;
+        if(visible && score > bestScore){
           bestScore = score;
           best = i;
         }
+        // mobile / general motion: fade blocks in when near viewport
+        if(reduce){
+          b.classList.add('is-near');
+        } else {
+          var near = rect.top < h * 0.88 && rect.bottom > h * 0.12;
+          b.classList.toggle('is-near', near);
+        }
       });
-      setPanel(best);
+      if(panels.length) setPanel(best);
     }
   }
 
