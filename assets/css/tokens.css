@@ -26,7 +26,7 @@
   --font-body:"Figtree",system-ui,sans-serif;
 
   /* Escala fluida */
-  --text-xs:clamp(.75rem,.7rem + .2vw,.8125rem);
+  --text-xs:clamp(.8rem,.74rem + .2vw,.8125rem);
   --text-sm:clamp(.875rem,.82rem + .2vw,.9375rem);
   --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
   --text-lg:clamp(1.125rem,1.05rem + .4vw,1.35rem);
