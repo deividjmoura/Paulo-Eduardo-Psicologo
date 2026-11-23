@@ -2,10 +2,10 @@
  * Escrita progressiva: o parágrafo aparece letra a letra, com um cursor,
  * como se estivesse sendo escrito à mão.
  *
- * O HTML original só é transformado quando a seção está prestes a entrar na
- * tela — antes disso (e sem JS, ou com prefers-reduced-motion) ele é um
- * parágrafo comum, com o texto inteiro e os espaços normais. Ao terminar a
- * animação, volta a ser texto puro.
+ * O HTML original só é transformado quando o parágrafo entra de fato na
+ * área visível da tela — antes disso (e sem JS, ou com prefers-reduced-motion)
+ * ele é um parágrafo comum, com o texto inteiro e os espaços normais.
+ * Ao terminar a animação, volta a ser texto puro.
  */
 export function initWrite(){
   const el=document.querySelector('[data-write]');
@@ -19,14 +19,56 @@ export function initWrite(){
   let state=null;
   let started=false;
 
+  // Evita que o parágrafo apareça pronto na borda inferior antes de animar,
+  // mantendo o texto puro no DOM até entrar na área visível.
+  el.classList.add('is-write-pending');
+
+  const isComfortablyVisible=()=>{
+    const r=el.getBoundingClientRect();
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    if(r.height<=0||vh<=0) return false;
+    const visibleTop=Math.max(r.top,0);
+    const visibleBottom=Math.min(r.bottom,vh*0.9);
+    const visibleH=Math.max(0,visibleBottom-visibleTop);
+    return (visibleH/r.height)>=0.28||(visibleH/vh)>=0.35||(r.top>=0&&r.top<vh*0.72);
+  };
+
+  let ticking=false;
+  const onScroll=()=>{
+    if(started||ticking) return;
+    ticking=true;
+    requestAnimationFrame(()=>{
+      ticking=false;
+      maybeStart();
+    });
+  };
+
   const io=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
-      if(!entry.isIntersecting) return;
-      io.disconnect();
-      start();
+      if(entry.isIntersecting) maybeStart();
     });
-  },{threshold:0,rootMargin:'0px 0px 22% 0px'});
+  },{threshold:[0,0.2,0.35],rootMargin:'0px 0px -10% 0px'});
+
+  const cleanupWatchers=()=>{
+    io.disconnect();
+    window.removeEventListener('scroll',onScroll);
+    document.removeEventListener('scroll',onScroll,true);
+    window.removeEventListener('resize',onScroll);
+    window.removeEventListener('hashchange',onScroll);
+  };
+
+  const maybeStart=()=>{
+    if(started||!isComfortablyVisible()) return;
+    cleanupWatchers();
+    start();
+  };
+
   io.observe(el);
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.addEventListener('scroll',onScroll,{passive:true,capture:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  window.addEventListener('hashchange',onScroll,{passive:true});
+  maybeStart();
 
   function build(){
     const chars=document.createElement('span');
@@ -52,6 +94,7 @@ export function initWrite(){
     el.textContent='';
     el.appendChild(chars);
     el.setAttribute('aria-label',original);
+    el.classList.remove('is-write-pending');
     el.classList.add('is-prepared');
 
     const caret=document.createElement('span');
@@ -66,7 +109,11 @@ export function initWrite(){
     const {letters,caret}=state;
     const target=letters[Math.min(index,letters.length-1)];
     if(!target) return;
-    caret.style.transform=`translate(${target.offsetLeft+target.offsetWidth}px,${target.offsetTop}px)`;
+    const box=el.getBoundingClientRect();
+    const rect=target.getBoundingClientRect();
+    const x=rect.right-box.left;
+    const y=rect.top-box.top+Math.max(0,(rect.height-(caret.offsetHeight||0))/2);
+    caret.style.transform=`translate(${x}px,${y}px)`;
   }
 
   function finish(animateCaret){
@@ -87,7 +134,7 @@ export function initWrite(){
 
   function type(){
     const total=state.letters.length;
-    const duration=Math.min(2600,Math.max(1100,total*6.5));
+    const duration=Math.min(13000,Math.max(6400,total*52));
     const t0=performance.now();
     let shown=0;
     placeCaret(0);

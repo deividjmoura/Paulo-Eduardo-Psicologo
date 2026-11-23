@@ -63,10 +63,23 @@ export function initNav(){
   if(desktop.addEventListener) desktop.addEventListener('change',onChange);
   else desktop.addListener(onChange);
 
+  const hero=document.querySelector('.hero');
+  const getScrollTop=()=>{
+    const docY=Math.max(
+      window.scrollY||0,
+      window.pageYOffset||0,
+      document.documentElement?.scrollTop||0,
+      document.body?.scrollTop||0
+    );
+    const heroY=hero?-hero.getBoundingClientRect().top:0;
+    return Math.max(docY,heroY);
+  };
   const onScroll=()=>{
-    nav.classList.toggle('is-scrolled',window.scrollY>40);
+    nav.classList.toggle('is-scrolled',getScrollTop()>30);
   };
   window.addEventListener('scroll',onScroll,{passive:true});
+  document.addEventListener('scroll',onScroll,{passive:true,capture:true});
+  window.addEventListener('resize',onScroll,{passive:true});
   onScroll();
 
   // Destaca o link da seção visível.
