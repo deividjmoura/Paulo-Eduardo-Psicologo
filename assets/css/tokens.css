@@ -54,3 +54,8 @@
   --nav-h:4.5rem;
   --topo:var(--nav-h);
 }
+@media(max-width:768px){
+  :root{
+    --section-y:clamp(2.15rem,5.5vw,2.75rem);
+  }
+}

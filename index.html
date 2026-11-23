@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#0e2b22">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="https://paulopsicologo.vercel.app/">
-<link rel="icon" href="assets/img/favicon.svg?v=20261123f" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=20261123f">
+<link rel="icon" href="assets/img/favicon.svg?v=20261123h" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=20261123h">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Paulo Eduardo T. Cosentino">
@@ -28,12 +28,12 @@
 <link rel="preload" href="assets/fonts/figtree-variable.woff2?v=20261123f" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/instrument-serif-italic.woff2?v=20261123f" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/img/paulo.webp?v=20261123f" as="image" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="assets/css/tokens.css?v=20261123f">
-<link rel="stylesheet" href="assets/css/base.css?v=20261123f">
-<link rel="stylesheet" href="assets/css/layout.css?v=20261123f">
-<link rel="stylesheet" href="assets/css/components.css?v=20261123f">
-<link rel="stylesheet" href="assets/css/sections.css?v=20261123f">
-<link rel="stylesheet" href="assets/css/motion.css?v=20261123f">
+<link rel="stylesheet" href="assets/css/tokens.css?v=20261123h">
+<link rel="stylesheet" href="assets/css/base.css?v=20261123h">
+<link rel="stylesheet" href="assets/css/layout.css?v=20261123h">
+<link rel="stylesheet" href="assets/css/components.css?v=20261123h">
+<link rel="stylesheet" href="assets/css/sections.css?v=20261123h">
+<link rel="stylesheet" href="assets/css/motion.css?v=20261123h">
 <script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Paulo Eduardo T. Cosentino, Psicólogo Clínico","description":"Terapia Cognitivo-Comportamental para adolescentes e adultos, presencial e online.","url":"https://paulopsicologo.vercel.app/","telephone":"+55 47 99653-0081","email":"psipauloeduardo1@gmail.com","areaServed":"Itajaí, SC","address":{"@type":"PostalAddress","addressLocality":"Itajaí","addressRegion":"SC","addressCountry":"BR"},"sameAs":["https://www.facebook.com/psicologopauloeduardo","https://www.instagram.com/psicologopauloeduardo"]}
@@ -46,7 +46,7 @@
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="#topo" class="nav__brand">
-      <span class="nav__mark" aria-hidden="true"></span>
+      <span class="nav__logo-wrap" aria-hidden="true"><picture><source srcset="assets/img/logo.webp?v=20261123h" type="image/webp"><img class="nav__logo" src="assets/img/logo.png?v=20261123h" width="34" height="34" alt="" decoding="sync" loading="eager"></picture></span>
       <span>Paulo Eduardo</span>
     </a>
     <nav class="nav__links" aria-label="Principal">
@@ -373,13 +373,14 @@
   </button>
 </div>
 
-<script type="module" src="assets/js/main.js?v=20261123f"></script>
+<script type="module" src="assets/js/main.js?v=20261123h"></script>
 <script>
   // Rede de segurança: se os módulos não carregarem, o conteúdo aparece mesmo assim.
   window.addEventListener('load', function () {
     setTimeout(function () {
       if (!document.querySelector('.reveal.is-in')) {
         document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+        document.querySelectorAll('.is-write-pending').forEach(function (el) { el.classList.remove('is-write-pending'); });
       }
     }, 1500);
   });

@@ -34,5 +34,7 @@
   gap:var(--s-6) var(--s-4);
 }
 @media(max-width:768px){
+  .eyebrow{margin-bottom:var(--s-2)}
+  .section__lead{margin:var(--s-2) 0 var(--s-5)}
   .grid-12{grid-template-columns:repeat(4,1fr)}
 }

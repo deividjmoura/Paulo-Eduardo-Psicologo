@@ -12,6 +12,9 @@
 .hero__copy .reveal:nth-child(4){transition-delay:.18s}
 .hero__photo.reveal{transition-duration:var(--dur-slow)}
 .hero__photo.reveal{transform:translateY(24px)}
+@media(max-width:900px){
+  .js .hero__photo.reveal{opacity:1;transform:none}
+}
 
 .js .reveal-line{display:block;overflow:hidden}
 .js .reveal-line > span{
@@ -28,6 +31,7 @@
     scroll-behavior:auto!important;
   }
   .js .reveal,
-  .js .reveal-line > span{opacity:1;transform:none}
+  .js .reveal-line > span,
+  .js .prop__text.is-write-pending{opacity:1;transform:none}
   .tcc__path path{stroke-dashoffset:0}
 }
