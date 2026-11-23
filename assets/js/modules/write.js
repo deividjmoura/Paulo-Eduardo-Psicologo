@@ -44,8 +44,9 @@ export function initWrite(){
         w.appendChild(s);
         letters.push(s);
       });
+      // o espaço vai dentro da palavra: extratotexto/extratores preservam a frase
+      if(wi<words.length-1) w.appendChild(document.createTextNode(' '));
       chars.appendChild(w);
-      if(wi<words.length-1) chars.appendChild(document.createTextNode(' '));
     });
 
     el.textContent='';

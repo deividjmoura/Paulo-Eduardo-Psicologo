@@ -157,3 +157,6 @@ frase, nem palavras coladas na indexação.
 O HTML só é dividido em letras quando a seção está a ~22% da viewport — antes disso o
 parágrafo é texto comum (o que rastreadores e usuários sem JS leem), e com o texto sempre
 com espaços normais. Versão dos assets: `?v=20261123e`.
+
+Cada palavra carrega o próprio espaço final dentro do `<span>`, então extratores de texto que
+concatenam elementos continuam lendo a frase com espaços. Versão: `?v=20261123f`.
