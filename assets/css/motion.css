@@ -1,27 +1,33 @@
-/* Motion — Respiro signature */
-.reveal{
+/* Motion — Respiro signature.
+   O estado inicial só é aplicado quando há JS (html.js),
+   para que o conteúdo nunca fique invisível sem script. */
+.js .reveal{
   opacity:0;transform:translateY(20px);
   transition:opacity var(--dur-med) var(--ease-calmo),transform var(--dur-med) var(--ease-calmo);
 }
-.reveal.is-in{opacity:1;transform:none}
+.js .reveal.is-in{opacity:1;transform:none}
 
-.reveal-line{
-  display:block;overflow:hidden;
-}
-.reveal-line > span{
-  display:block;
-  transform:translateY(110%);
+.hero__copy .reveal:nth-child(2){transition-delay:.06s}
+.hero__copy .reveal:nth-child(3){transition-delay:.12s}
+.hero__copy .reveal:nth-child(4){transition-delay:.18s}
+.hero__photo.reveal{transition-duration:var(--dur-slow)}
+.hero__photo.reveal{transform:translateY(24px)}
+
+.js .reveal-line{display:block;overflow:hidden}
+.js .reveal-line > span{
+  display:block;transform:translateY(110%);
   transition:transform var(--dur-slow) var(--ease-calmo);
 }
-.reveal-line.is-in > span{transform:translateY(0)}
+.js .reveal-line.is-in > span{transform:translateY(0)}
 
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation:none!important;
     transition-duration:.01ms!important;
+    transition-delay:0s!important;
     scroll-behavior:auto!important;
   }
-  .reveal,.reveal-line > span{opacity:1;transform:none}
-  .hero__rings span{animation:none}
+  .js .reveal,
+  .js .reveal-line > span{opacity:1;transform:none}
   .tcc__path path{stroke-dashoffset:0}
 }

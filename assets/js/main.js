@@ -7,13 +7,21 @@ import {initFab} from './modules/fab.js';
 import {initPathDraw} from './modules/path-draw.js';
 import {initPosts} from './modules/posts.js';
 
+// Cada módulo é independente: uma falha não derruba os demais.
+const modules=[
+  initNav,
+  initReveal,
+  initAccordion,
+  initTabs,
+  initFab,
+  initPathDraw,
+  initCarousel,
+];
+
 document.addEventListener('DOMContentLoaded',()=>{
-  initNav();
-  initReveal();
-  initAccordion();
-  initTabs();
-  initCarousel();
-  initFab();
-  initPathDraw();
+  modules.forEach(init=>{
+    try{init();}
+    catch(err){console.error('[site] Falha ao iniciar módulo:',err);}
+  });
   initPosts();
 });
