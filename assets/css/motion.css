@@ -1,0 +1,27 @@
+/* Motion — Respiro signature */
+.reveal{
+  opacity:0;transform:translateY(20px);
+  transition:opacity var(--dur-med) var(--ease-calmo),transform var(--dur-med) var(--ease-calmo);
+}
+.reveal.is-in{opacity:1;transform:none}
+
+.reveal-line{
+  display:block;overflow:hidden;
+}
+.reveal-line > span{
+  display:block;
+  transform:translateY(110%);
+  transition:transform var(--dur-slow) var(--ease-calmo);
+}
+.reveal-line.is-in > span{transform:translateY(0)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .reveal,.reveal-line > span{opacity:1;transform:none}
+  .hero__rings span{animation:none}
+  .tcc__path path{stroke-dashoffset:0}
+}
