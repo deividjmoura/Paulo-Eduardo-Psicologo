@@ -142,10 +142,6 @@
   text-wrap:pretty;
 }
 /* escrita letra a letra */
-.prop__text .write__sr{
-  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
-  overflow:hidden;clip-path:inset(50%);white-space:nowrap;
-}
 .prop__text .w{display:inline-block;white-space:nowrap}
 .prop__text .ch{
   display:inline-block;
