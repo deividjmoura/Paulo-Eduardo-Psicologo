@@ -6,33 +6,49 @@
 <title>Paulo Eduardo T. Cosentino | Psicólogo Clínico em Itajaí</title>
 <meta name="description" content="Paulo Eduardo T. Cosentino, psicólogo clínico CRP 12/30514. Terapia Cognitivo-Comportamental em Itajaí e online, para adolescentes e adultos.">
 <meta name="theme-color" content="#0e2b22">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://paulopsicologo.vercel.app/">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Paulo Eduardo T. Cosentino">
 <meta property="og:title" content="Paulo Eduardo T. Cosentino | Psicólogo Clínico em Itajaí">
-<meta property="og:description" content="Terapia Cognitivo-Comportamental presencial em Itajaí e online.">
+<meta property="og:description" content="Terapia Cognitivo-Comportamental presencial em Itajaí e online, para adolescentes e adultos.">
 <meta property="og:image" content="https://paulopsicologo.vercel.app/assets/img/paulo.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Paulo Eduardo T. Cosentino, psicólogo clínico">
 <meta property="og:url" content="https://paulopsicologo.vercel.app/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Paulo Eduardo T. Cosentino | Psicólogo Clínico em Itajaí">
+<meta name="twitter:description" content="Terapia Cognitivo-Comportamental presencial em Itajaí e online.">
+<meta name="twitter:image" content="https://paulopsicologo.vercel.app/assets/img/paulo.jpg">
+<link rel="preload" href="assets/fonts/bricolage-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/figtree-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/paulo.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/sections.css">
 <link rel="stylesheet" href="assets/css/motion.css">
+<script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Paulo Eduardo T. Cosentino, Psicólogo Clínico","description":"Terapia Cognitivo-Comportamental para adolescentes e adultos, presencial e online.","url":"https://paulopsicologo.vercel.app/","telephone":"+55 47 99653-0081","areaServed":"Itajaí, SC","address":{"@type":"PostalAddress","addressLocality":"Itajaí","addressRegion":"SC","addressCountry":"BR"},"sameAs":["https://www.facebook.com/psicologopauloeduardo","https://www.instagram.com/psicologopauloeduardo"]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Paulo Eduardo T. Cosentino, Psicólogo Clínico","description":"Terapia Cognitivo-Comportamental para adolescentes e adultos, presencial e online.","url":"https://paulopsicologo.vercel.app/","telephone":"+55 47 99653-0081","email":"psipauloeduardo1@gmail.com","areaServed":"Itajaí, SC","address":{"@type":"PostalAddress","addressLocality":"Itajaí","addressRegion":"SC","addressCountry":"BR"},"sameAs":["https://www.facebook.com/psicologopauloeduardo","https://www.instagram.com/psicologopauloeduardo"]}
 </script>
+<noscript><style>.nav__burger,.fab{display:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#topo" class="nav__brand">Paulo Eduardo</a>
+    <a href="#topo" class="nav__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Paulo Eduardo</span>
+    </a>
     <nav class="nav__links" aria-label="Principal">
       <a href="#proposito">Propósito</a>
       <a href="#valores">Valores</a>
@@ -40,41 +56,55 @@
       <a href="#abordagem">Abordagem</a>
       <a href="#novidades">Novidades</a>
     </nav>
-    <a class="btn btn--primary nav__cta" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar</a>
-    <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-panel"><span></span><span></span></button>
+    <a class="btn nav__cta" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar</a>
+    <button class="nav__burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-panel">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
 
-<nav class="nav-panel" id="nav-panel" aria-label="Menu móvel" hidden>
-  <a href="#proposito">Propósito</a>
-  <a href="#valores">Valores</a>
-  <a href="#atendimento">Atendimento</a>
-  <a href="#abordagem">Abordagem</a>
-  <a href="#novidades">Novidades</a>
-  <a href="#contato">Contato</a>
+<nav class="nav-panel" id="nav-panel" aria-label="Menu" inert>
+  <div class="nav-panel__inner">
+    <p class="nav-panel__eyebrow">Navegar</p>
+    <a class="nav-panel__link" href="#proposito"><span aria-hidden="true">01</span>Propósito</a>
+    <a class="nav-panel__link" href="#valores"><span aria-hidden="true">02</span>Valores</a>
+    <a class="nav-panel__link" href="#atendimento"><span aria-hidden="true">03</span>Atendimento</a>
+    <a class="nav-panel__link" href="#publico"><span aria-hidden="true">04</span>Para quem</a>
+    <a class="nav-panel__link" href="#abordagem"><span aria-hidden="true">05</span>Abordagem</a>
+    <a class="nav-panel__link" href="#novidades"><span aria-hidden="true">06</span>Novidades</a>
+    <a class="nav-panel__link" href="#contato"><span aria-hidden="true">07</span>Contato</a>
+  </div>
+  <div class="nav-panel__foot">
+    <a class="btn btn--on-dark btn--block" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp</a>
+    <p class="nav-panel__note">CRP 12/30514 · Itajaí, SC</p>
+  </div>
 </nav>
 
-<main id="conteudo">
+<main id="conteudo" tabindex="-1">
 
 <section class="hero" id="topo" aria-labelledby="hero-title">
-  <div class="hero__copy">
-    <p class="hero__crp reveal">Psicólogo Clínico · CRP 12/30514</p>
-    <h1 id="hero-title" class="reveal">Paulo Eduardo <span class="serif-em">T. Cosentino</span></h1>
-    <p class="hero__sub reveal">Ajudando adolescentes e adultos a construírem qualidade de vida, autoconhecimento e equilíbrio emocional com a Terapia Cognitivo-Comportamental.</p>
-    <div class="hero__cta reveal">
-      <a class="btn btn--on-dark" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp <span class="btn__arrow" aria-hidden="true">→</span></a>
-      <a class="btn btn--ghost" href="#proposito">Conhecer o trabalho</a>
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="hero__crp reveal">Psicólogo Clínico · CRP 12/30514</p>
+      <h1 id="hero-title" class="reveal">Paulo Eduardo <span class="serif-em">T. Cosentino</span></h1>
+      <p class="hero__sub reveal">Ajudando adolescentes e adultos a construírem qualidade de vida, autoconhecimento e equilíbrio emocional com a Terapia Cognitivo-Comportamental.</p>
+      <div class="hero__cta reveal">
+        <a class="btn btn--on-dark" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#proposito">Conhecer o trabalho</a>
+      </div>
     </div>
-  </div>
-  <div class="hero__visual">
-    <div class="hero__rings" aria-hidden="true"><span></span><span></span><span></span></div>
-    <div class="hero__photo reveal">
-      <picture>
-        <source srcset="assets/img/paulo.webp" type="image/webp">
-        <img src="assets/img/paulo.jpg" width="600" height="800" alt="Paulo Eduardo T. Cosentino, psicólogo clínico" fetchpriority="high">
-      </picture>
+    <div class="hero__visual">
+      <div class="hero__frame">
+        <span class="hero__ring hero__ring--1" aria-hidden="true"></span>
+        <span class="hero__ring hero__ring--2" aria-hidden="true"></span>
+        <div class="hero__photo reveal">
+          <picture>
+            <source srcset="assets/img/paulo.webp" type="image/webp">
+            <img src="assets/img/paulo.jpg" width="600" height="600" alt="Retrato de Paulo Eduardo T. Cosentino, psicólogo clínico" fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+      </div>
     </div>
-    <div class="hero__fade" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -87,10 +117,10 @@
 </div>
 
 <section class="section section--papel" id="proposito" aria-labelledby="prop-title">
-  <div class="container prop__inner">
+  <div class="container prop">
     <p class="eyebrow reveal">Propósito</p>
     <p id="prop-title" class="prop__text reveal">Meu propósito é ajudar pessoas a desenvolverem uma melhor qualidade de vida, promovendo autoconhecimento, equilíbrio emocional e estratégias para lidar de forma mais saudável com os desafios do dia a dia.</p>
-    <div class="prop__arch reveal" aria-hidden="true"></div>
+    <span class="prop__arch" aria-hidden="true"></span>
   </div>
 </section>
 
@@ -98,10 +128,10 @@
   <div class="container">
     <p class="eyebrow reveal">Valores</p>
     <h2 id="val-title" class="reveal">O que sustenta o <span class="serif-em">meu trabalho</span></h2>
-    <div class="valores__grid acc reveal" data-accordion style="margin-top:var(--s-10)">
+    <div class="valores__grid acc reveal" data-accordion>
       <div class="acc__item">
-        <button class="acc__btn" aria-expanded="true">
-          <span class="acc__num">01</span>
+        <button class="acc__btn" type="button" aria-expanded="true">
+          <span class="acc__num" aria-hidden="true">01</span>
           <span class="acc__title">Ética</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
@@ -110,8 +140,8 @@
         </div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__btn" aria-expanded="false">
-          <span class="acc__num">02</span>
+        <button class="acc__btn" type="button" aria-expanded="false">
+          <span class="acc__num" aria-hidden="true">02</span>
           <span class="acc__title">Honestidade</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
@@ -120,8 +150,8 @@
         </div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__btn" aria-expanded="false">
-          <span class="acc__num">03</span>
+        <button class="acc__btn" type="button" aria-expanded="false">
+          <span class="acc__num" aria-hidden="true">03</span>
           <span class="acc__title">Excelência</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
@@ -130,8 +160,8 @@
         </div></div>
       </div>
       <div class="acc__item">
-        <button class="acc__btn" aria-expanded="false">
-          <span class="acc__num">04</span>
+        <button class="acc__btn" type="button" aria-expanded="false">
+          <span class="acc__num" aria-hidden="true">04</span>
           <span class="acc__title">Cuidado e valor</span>
           <span class="acc__icon" aria-hidden="true"></span>
         </button>
@@ -147,7 +177,7 @@
   <div class="container">
     <p class="eyebrow reveal">Atendimento</p>
     <h2 id="atend-title" class="reveal">Como posso <span class="serif-em">te ajudar</span></h2>
-    <p class="reveal" style="color:var(--suave);max-width:32rem;margin:var(--s-4) 0 var(--s-10)">Escuta atenta e técnicas baseadas em evidências, no formato que fizer mais sentido para a sua rotina.</p>
+    <p class="section__lead reveal">Escuta atenta e técnicas baseadas em evidências, no formato que fizer mais sentido para a sua rotina.</p>
     <div class="bento">
       <article class="bento__card bento__card--main reveal">
         <svg class="bento__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
@@ -169,22 +199,30 @@
 </section>
 
 <section class="section section--menta" id="publico" aria-labelledby="pub-title">
-  <div class="container" data-tabs>
-    <p class="eyebrow reveal">Para quem</p>
-    <h2 id="pub-title" class="reveal">Adolescentes e <span class="serif-em">adultos</span></h2>
-    <div class="tabs__list reveal" role="tablist" aria-label="Faixa etária" style="margin-top:var(--s-8)">
-      <button class="tabs__tab" role="tab" aria-selected="true" aria-controls="panel-teen" id="tab-teen">Adolescentes</button>
-      <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="panel-adult" id="tab-adult">Adultos</button>
+  <div class="container audience" data-tabs>
+    <div class="audience__intro">
+      <p class="eyebrow reveal">Para quem</p>
+      <h2 id="pub-title" class="reveal">Adolescentes e <span class="serif-em">adultos</span></h2>
+      <div class="tabs__list reveal" role="tablist" aria-label="Faixa etária">
+        <button class="tabs__tab" type="button" role="tab" aria-selected="true" aria-controls="panel-teen" id="tab-teen">Adolescentes</button>
+        <button class="tabs__tab" type="button" role="tab" aria-selected="false" aria-controls="panel-adult" id="tab-adult" tabindex="-1">Adultos</button>
+      </div>
     </div>
-    <div class="tabs__panel is-active audience__content reveal" role="tabpanel" id="panel-teen" aria-labelledby="tab-teen">
-      <p class="tabs__num" aria-hidden="true">15+</p>
-      <h3>Adolescentes</h3>
-      <p>A partir de 15 anos. Apoio em ansiedade, autoestima, pressão escolar, relacionamentos e construção de identidade.</p>
-    </div>
-    <div class="tabs__panel audience__content reveal" role="tabpanel" id="panel-adult" aria-labelledby="tab-adult" hidden>
-      <p class="tabs__num" aria-hidden="true">18+</p>
-      <h3>Adultos</h3>
-      <p>Estresse, ansiedade, depressão, conflitos de relacionamento, decisões de carreira e a busca por mais equilíbrio emocional.</p>
+    <div class="audience__panels">
+      <div class="tabs__panel is-active" role="tabpanel" id="panel-teen" aria-labelledby="tab-teen" tabindex="0">
+        <p class="tabs__num" aria-hidden="true">15+</p>
+        <div class="audience__content">
+          <h3>Adolescentes</h3>
+          <p>A partir de 15 anos. Apoio em ansiedade, autoestima, pressão escolar, relacionamentos e construção de identidade.</p>
+        </div>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-adult" aria-labelledby="tab-adult" tabindex="0" hidden>
+        <p class="tabs__num" aria-hidden="true">18+</p>
+        <div class="audience__content">
+          <h3>Adultos</h3>
+          <p>Estresse, ansiedade, depressão, conflitos de relacionamento, decisões de carreira e a busca por mais equilíbrio emocional.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -199,25 +237,26 @@
         <h3>O que esperar</h3>
         <p>Sessões estruturadas, com objetivos definidos em conjunto. Você aprende e pratica habilidades que leva para a vida, com autonomia, ética e sigilo.</p>
       </div>
+      <a class="btn btn--outline tcc__cta reveal" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar uma conversa <span class="btn__arrow" aria-hidden="true">→</span></a>
     </div>
     <div class="tcc__steps">
       <svg class="tcc__path" viewBox="0 0 40 400" preserveAspectRatio="none" aria-hidden="true">
         <path pathLength="1" d="M20 0 C20 40, 8 60, 20 100 S32 160, 20 200 S8 260, 20 300 S32 360, 20 400"/>
       </svg>
-      <div class="tcc__step reveal" style="--i:0">
-        <span class="tcc__step-num">01</span>
+      <div class="tcc__step reveal">
+        <span class="tcc__step-num" aria-hidden="true">01</span>
         <p>Identificar pensamentos automáticos e crenças que alimentam o sofrimento.</p>
       </div>
-      <div class="tcc__step reveal" style="--i:1">
-        <span class="tcc__step-num">02</span>
+      <div class="tcc__step reveal">
+        <span class="tcc__step-num" aria-hidden="true">02</span>
         <p>Desenvolver estratégias para lidar com emoções intensas.</p>
       </div>
-      <div class="tcc__step reveal" style="--i:2">
-        <span class="tcc__step-num">03</span>
+      <div class="tcc__step reveal">
+        <span class="tcc__step-num" aria-hidden="true">03</span>
         <p>Mudar, aos poucos, os comportamentos que mantêm o problema.</p>
       </div>
-      <div class="tcc__step reveal" style="--i:3">
-        <span class="tcc__step-num">04</span>
+      <div class="tcc__step reveal">
+        <span class="tcc__step-num" aria-hidden="true">04</span>
         <p>Levar ferramentas para o dia a dia, entre uma sessão e outra.</p>
       </div>
     </div>
@@ -230,53 +269,74 @@
       <div>
         <p class="eyebrow reveal">Redes</p>
         <h2 id="nov-title" class="reveal">Reflexões e <span class="serif-em">novidades</span></h2>
-        <p class="reveal">Algumas publicações recentes. Para ver tudo, acompanhe nas redes.</p>
+        <p class="social__lead reveal">Algumas publicações recentes. Para ver tudo, acompanhe nas redes.</p>
+      </div>
+      <div class="social__ctas reveal">
+        <a class="btn btn--on-dark" href="https://www.instagram.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer">Seguir no Instagram</a>
+        <a class="btn btn--ghost" href="https://www.facebook.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer">Curtir no Facebook</a>
       </div>
     </div>
-    <div class="carousel" data-carousel>
+    <div class="carousel" data-carousel aria-roledescription="carrossel" aria-label="Publicações recentes">
       <div class="carousel__track" data-posts-track>
         <a class="carousel__card" href="https://www.instagram.com/p/DcQonJbRcAY/" target="_blank" rel="noopener noreferrer">
-          <div class="carousel__thumb"><img src="assets/img/foto1.png" alt="" loading="lazy" width="400" height="500"></div>
+          <div class="carousel__thumb"><img src="assets/img/foto1.webp" alt="" loading="lazy" decoding="async" width="548" height="587"></div>
           <div class="carousel__body">
-            <div class="carousel__meta">Instagram</div>
+            <div class="carousel__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</div>
             <p class="carousel__text">Uma reflexão sobre saúde emocional e a importância de olhar com carinho para aquilo que sentimos.</p>
           </div>
         </a>
         <a class="carousel__card" href="https://www.instagram.com/p/DbqN-LgRW2D/" target="_blank" rel="noopener noreferrer">
-          <div class="carousel__thumb"><img src="assets/img/foto2.png" alt="" loading="lazy" width="400" height="500"></div>
+          <div class="carousel__thumb"><img src="assets/img/foto2.webp" alt="" loading="lazy" decoding="async" width="593" height="590"></div>
           <div class="carousel__body">
-            <div class="carousel__meta">Instagram</div>
+            <div class="carousel__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</div>
             <p class="carousel__text">Conteúdo para ampliar o autoconhecimento e lembrar que pequenas mudanças também fazem parte do cuidado.</p>
           </div>
         </a>
         <a class="carousel__card" href="https://www.facebook.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer">
-          <div class="carousel__thumb"><img src="assets/img/foto3.png" alt="" loading="lazy" width="400" height="500"></div>
+          <div class="carousel__thumb"><img src="assets/img/foto3.webp" alt="" loading="lazy" decoding="async" width="375" height="327"></div>
           <div class="carousel__body">
-            <div class="carousel__meta">Facebook</div>
+            <div class="carousel__meta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg> Facebook</div>
             <p class="carousel__text">Acompanhe as atualizações e os conteúdos sobre psicologia e cuidado emocional na página profissional.</p>
           </div>
         </a>
       </div>
       <div class="carousel__nav">
-        <button class="carousel__btn" data-carousel-prev aria-label="Anterior">←</button>
-        <button class="carousel__btn" data-carousel-next aria-label="Próximo">→</button>
+        <button class="carousel__btn" type="button" data-carousel-prev aria-label="Publicações anteriores">←</button>
+        <button class="carousel__btn" type="button" data-carousel-next aria-label="Próximas publicações">→</button>
       </div>
-    </div>
-    <div class="social__ctas reveal">
-      <a class="btn btn--on-dark" href="https://www.instagram.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer">Seguir no Instagram</a>
-      <a class="btn btn--ghost" href="https://www.facebook.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer">Curtir no Facebook</a>
     </div>
   </div>
 </section>
 
 <section class="section section--dark contact" id="contato" aria-labelledby="ct-title">
-  <div class="container">
-    <h2 id="ct-title" class="reveal">Vamos <span class="serif-em">conversar?</span></h2>
-    <p class="contact__sub reveal">Presencial em Itajaí ou online — no ritmo que fizer sentido para você.</p>
-    <div class="reveal">
-      <a class="btn btn--on-dark" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar consulta <span class="btn__arrow" aria-hidden="true">→</span></a>
+  <div class="container contact__inner">
+    <div class="contact__copy">
+      <p class="eyebrow reveal">Contato</p>
+      <h2 id="ct-title" class="reveal">Vamos <span class="serif-em">conversar?</span></h2>
+      <p class="contact__sub reveal">Presencial em Itajaí ou online — no ritmo que fizer sentido para você.</p>
+      <div class="contact__cta reveal">
+        <a class="btn btn--on-dark" href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">Agendar consulta <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="mailto:psipauloeduardo1@gmail.com?subject=Agendamento%20de%20consulta">Enviar e-mail</a>
+      </div>
     </div>
-    <p class="contact__place reveal">Itajaí, Santa Catarina</p>
+    <ul class="contact__card reveal">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a7 7 0 1 1 14 0c0 5.6-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+        <div><span>Consultório</span><strong>Itajaí, Santa Catarina</strong></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
+        <div><span>WhatsApp</span><a href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">+55 (47) 99653-0081</a></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+        <div><span>E-mail</span><a href="mailto:psipauloeduardo1@gmail.com?subject=Agendamento%20de%20consulta">psipauloeduardo1@gmail.com</a></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 7 22l5-2.5L17 22l-2-8.5"/></svg>
+        <div><span>Registro profissional</span><strong>CRP 12/30514</strong></div>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -284,28 +344,69 @@
 
 <footer class="footer">
   <div class="footer__inner">
-    <span>Paulo Eduardo T. Cosentino · Psicólogo Clínico · CRP 12/30514</span>
-    <span>© 2026 · <a href="#topo">Voltar ao topo</a></span>
+    <div class="footer__brand">
+      <a href="#topo" class="footer__name">Paulo Eduardo T. Cosentino</a>
+      <p>Psicólogo Clínico · CRP 12/30514<br>Atendimento presencial em Itajaí e online.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Rodapé">
+      <p class="footer__title">Navegar</p>
+      <a href="#proposito">Propósito</a>
+      <a href="#valores">Valores</a>
+      <a href="#atendimento">Atendimento</a>
+      <a href="#abordagem">Abordagem</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="footer__social-wrap">
+      <p class="footer__title">Redes</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/psicologopauloeduardo" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg>
+        </a>
+        <a href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
+        </a>
+        <a href="mailto:psipauloeduardo1@gmail.com?subject=Agendamento%20de%20consulta" aria-label="E-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Paulo Eduardo T. Cosentino</span>
+    <a href="#topo">Voltar ao topo ↑</a>
   </div>
 </footer>
 
 <div class="fab" id="fab">
-  <div class="fab__sheet" id="fab-sheet" role="menu">
-    <a href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer" role="menuitem">
+  <div class="fab__sheet" id="fab-sheet" role="group" aria-label="Formas de contato">
+    <a href="https://wa.me/5547996530081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.1c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
       WhatsApp
     </a>
-    <a href="mailto:psipauloeduardo1@gmail.com?subject=Agendamento%20de%20consulta" role="menuitem">
+    <a href="mailto:psipauloeduardo1@gmail.com?subject=Agendamento%20de%20consulta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
       E-mail
     </a>
   </div>
-  <button class="fab__btn" id="fab-btn" aria-label="Entrar em contato" aria-expanded="false" aria-controls="fab-sheet">
+  <button class="fab__btn" id="fab-btn" type="button" aria-label="Abrir contatos" aria-expanded="false" aria-controls="fab-sheet">
     <svg class="icon-c" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>
     <svg class="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
   </button>
 </div>
 
 <script type="module" src="assets/js/main.js"></script>
+<script>
+  // Rede de segurança: se os módulos não carregarem, o conteúdo aparece mesmo assim.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (!document.querySelector('.reveal.is-in')) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+      }
+    }, 1500);
+  });
+</script>
 </body>
 </html>

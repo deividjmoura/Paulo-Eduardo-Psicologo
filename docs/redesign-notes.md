@@ -37,3 +37,9 @@
 
 ## Conceito
 **Respiro** — editorial, calmo, humano. Movimento lento (respiração). Formas em arco. Tipografia Bricolage + Instrument Serif + Figtree.
+
+## Ajustes de implementação (nov/2026)
+- Fontes passaram a ser autohospedadas (`assets/fonts/`) — as referências anteriores retornavam 404.
+- Hero, Valores, Atendimento, Público, Abordagem, Novidades e Contato foram recompostos para
+  ocupar o container sem áreas mortas; menu mobile e estados de foco foram refeitos.
+- Auditoria detalhada em `docs/correcoes.md`.

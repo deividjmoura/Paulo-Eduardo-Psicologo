@@ -1,20 +1,32 @@
 /* Layout — grid, seções, ritmo vertical */
-.section{padding-block:var(--section-y)}
+.section{
+  position:relative;
+  padding-block:var(--section-y);
+}
 .section--dark{background:var(--floresta);color:var(--papel)}
-.section--menta{background:color-mix(in srgb,var(--salvia) 28%,var(--papel))}
+.section--menta{background:#dce5d2;background:color-mix(in srgb,var(--salvia) 28%,var(--papel))}
 .section--areia{background:var(--areia)}
 .section--papel{background:var(--papel)}
+.section--dark + .section--dark{
+  border-top:1px solid color-mix(in srgb,var(--papel) 12%,transparent);
+}
 
 .eyebrow{
   display:inline-flex;align-items:center;gap:var(--s-3);
-  font-size:var(--text-xs);font-weight:600;letter-spacing:.08em;
+  font-size:var(--text-xs);font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--suave);margin-bottom:var(--s-4);
 }
-.section--dark .eyebrow{color:var(--salvia)}
 .eyebrow::before{
-  content:"";width:1.5rem;height:1px;background:var(--verde);
+  content:"";width:1.5rem;height:1px;background:var(--verde);flex:none;
 }
+.section--dark .eyebrow{color:var(--salvia)}
 .section--dark .eyebrow::before{background:var(--salvia)}
+
+.section__lead{
+  color:var(--suave);
+  max-width:34rem;
+  margin:var(--s-4) 0 var(--s-10);
+}
 
 .grid-12{
   display:grid;

@@ -2,25 +2,22 @@
   {
     "id": "1",
     "rede": "instagram",
-    "imagem": "assets/img/foto1.png",
+    "imagem": "assets/img/foto1.webp",
     "legenda": "Uma reflexão sobre saúde emocional e a importância de olhar com carinho para aquilo que sentimos.",
-    "data": "2026",
     "url": "https://www.instagram.com/p/DcQonJbRcAY/"
   },
   {
     "id": "2",
     "rede": "instagram",
-    "imagem": "assets/img/foto2.png",
+    "imagem": "assets/img/foto2.webp",
     "legenda": "Conteúdo para ampliar o autoconhecimento e lembrar que pequenas mudanças também fazem parte do cuidado.",
-    "data": "2026",
     "url": "https://www.instagram.com/p/DbqN-LgRW2D/"
   },
   {
     "id": "3",
     "rede": "facebook",
-    "imagem": "assets/img/foto3.png",
+    "imagem": "assets/img/foto3.webp",
     "legenda": "Acompanhe as atualizações e os conteúdos sobre psicologia e cuidado emocional na página profissional.",
-    "data": "2026",
     "url": "https://www.facebook.com/psicologopauloeduardo"
   }
 ]
