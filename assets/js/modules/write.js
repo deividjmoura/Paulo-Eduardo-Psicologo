@@ -2,7 +2,9 @@
  * Escrita progressiva: o parágrafo aparece letra a letra, com um cursor,
  * como se estivesse sendo escrito à mão.
  *
- * A estrutura final volta a ser texto puro (bom para seleção e leitores de tela).
+ * A estrutura final volta a ser texto puro (bom para seleção e indexacao).
+ * Durante a animacao o paragrafo expoe a frase inteira via aria-label e as letras
+ * ficam aria-hidden, entao leitores de tela nao soletram o texto.
  * Sem JS ou com prefers-reduced-motion o texto simplesmente já está lá.
  */
 export function initWrite(){
@@ -13,10 +15,6 @@ export function initWrite(){
   if(reduce||!('IntersectionObserver' in window)||!el.textContent.trim()) return;
 
   const original=el.textContent.replace(/\s+/g,' ').trim();
-
-  const sr=document.createElement('span');
-  sr.className='write__sr';
-  sr.textContent=original;
 
   const chars=document.createElement('span');
   chars.className='write__chars';
@@ -38,7 +36,8 @@ export function initWrite(){
   });
 
   el.textContent='';
-  el.append(sr,chars);
+  el.appendChild(chars);
+  el.setAttribute('aria-label',original);
   el.classList.add('is-prepared');
 
   const caret=document.createElement('span');
@@ -117,6 +116,7 @@ export function initWrite(){
       caret.remove();
       // volta ao texto puro: seleção natural e sem 300 elementos no DOM
       el.classList.remove('is-prepared');
+      el.removeAttribute('aria-label');
       el.textContent=original;
     },animateCaret?420:0);
   }
