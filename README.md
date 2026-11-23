@@ -1,20 +1,41 @@
-# Paulo Eduardo T. Cosentino · Psicólogo Clínico
+# Paulo Eduardo T. Cosentino — Site profissional
 
-Site estático (HTML + CSS + JS puros), sem build. Deploy na Vercel.
+Psicólogo clínico (CRP 12/30514) · Itajaí/SC · TCC presencial e online.
 
-## Estrutura
-- `index.html`: conteúdo e SEO (Open Graph, JSON-LD)
-- `assets/css/`: `tokens.css` (cores/tipografia), `base.css`, `components.css`, `sections.css`
-- `assets/js/`: `nav.js`, `effects.js`, `social.js`, `fab.js`
-- `assets/js/posts-data.js`: **edite aqui os posts exibidos** (rede, data, texto, url, imagem opcional)
-- `assets/img/`: foto, favicon
+## Redesign Respiro
 
-## Posts do Facebook/Instagram
-Sem API, a lista é manual. Copie o link do post, cole em `url` e atualize `texto`/`data`.
-Imagem opcional: salve em `assets/img/` e preencha `imagem`.
+Identidade editorial e calma. Paleta original preservada. Tipografia: Bricolage Grotesque, Instrument Serif, Figtree (autohospedadas em `assets/fonts/`).
 
-## Rodar local
-`npx serve .` ou abra o `index.html`.
+### Estrutura
 
-## Commits
-Conventional Commits (`feat:`, `fix:`, `style:`, `docs:`, `chore:`).
+```
+index.html
+assets/css/   tokens | base | layout | components | sections | motion
+assets/js/    main.js + modules/
+assets/fonts/ woff2
+assets/img/
+data/posts.json
+docs/redesign-notes.md
+```
+
+### Desenvolvimento local
+
+Abra `index.html` via servidor estático (módulos ES exigem HTTP):
+
+```bash
+npx serve .
+# ou
+python3 -m http.server 8080
+```
+
+### Atualizar posts
+
+Edite `data/posts.json` (id, rede, imagem, legenda, data, url). Imagens em `assets/img/`.
+
+### Deploy
+
+Vercel a partir do repositório GitHub. Preview em PRs.
+
+### Acessibilidade e movimento
+
+`prefers-reduced-motion` desativa anéis, reveals e desenho da linha. Conteúdo visível sem JS.
