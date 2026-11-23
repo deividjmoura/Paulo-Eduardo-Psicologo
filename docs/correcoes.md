@@ -149,3 +149,7 @@ mais de delicadeza".
 
 Verificações: 178 checagens automatizadas (incluindo a escrita, 14 larguras e reduced motion),
 0 falhas; screenshots revisados em 320, 390, 768, 1440 e 1920.
+
+Nota: as letras usam spans **inline** (sem `inline-block`) para que a quebra de linha e a
+extração do texto permaneçam idênticas ao parágrafo comum — o HTML nunca expõe duas cópias da
+frase, nem palavras coladas na indexação.
