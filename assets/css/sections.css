@@ -121,58 +121,86 @@
 .lw{opacity:.18;transition:opacity .4s}
 .lw.on{opacity:1}
 
-/* ---------- VALORES + VÍDEO – cinematic split ---------- */
+/* ---------- VALORES – vídeo de fundo + textos por cima ---------- */
 .valores{
-  background:var(--areia-2);
-  padding:4rem 0;
-}
-.valores .topo{margin-bottom:2.2rem}
-.valores .topo h2{margin-bottom:.4rem}
-.valores .topo p{color:var(--suave);max-width:28rem}
-
-.valores-layout{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
-  gap:2.5rem;
-  align-items:start;
-}
-.valores-media{
-  position:sticky;
-  top:5.5rem;
-  border-radius:4px;
+  position:relative;
+  padding:0;
+  min-height:min(92svh, 820px);
+  display:flex;
+  align-items:center;
   overflow:hidden;
   background:#0a1f18;
-  aspect-ratio:9/14;
-  max-height:520px;
-  box-shadow:0 20px 50px rgba(14,43,34,.18);
+  color:var(--papel);
 }
-.valores-media video{
-  width:100%;height:100%;
+.valores-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.valores-bg video{
+  width:100%;
+  height:100%;
   object-fit:cover;
+  object-position:center;
   display:block;
 }
-
-.valores-lista{display:flex;flex-direction:column;gap:0}
-.valor{
-  padding:1.5rem 0 1.5rem 1.4rem;
-  border-left:2px solid rgba(14,43,34,.12);
+.valores-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(105deg, rgba(10,31,24,.88) 0%, rgba(10,31,24,.72) 42%, rgba(10,31,24,.45) 100%),
+    linear-gradient(to top, rgba(10,31,24,.75) 0%, transparent 35%);
+  pointer-events:none;
+}
+.valores-content{
   position:relative;
+  z-index:1;
+  padding:4.5rem 0;
+  width:min(1080px, 100% - 2rem);
+}
+.valores .topo{
+  margin-bottom:2.4rem;
+  display:block;
+}
+.valores .topo h2{
+  color:var(--papel);
+  margin-bottom:.45rem;
+}
+.valores .topo h2 em{color:var(--salvia)}
+.valores .topo p{
+  color:rgba(236,230,214,.78);
+  max-width:28rem;
+  font-size:1rem;
+}
+.valores-lista{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.6rem 2.4rem;
+  max-width:52rem;
+}
+.valor{
+  padding:0 0 0 1.15rem;
+  border-left:2px solid rgba(168,213,186,.35);
+  background:transparent;
   transition:border-color .35s;
 }
-.valor:hover{border-left-color:var(--verde)}
+.valor:hover{border-left-color:var(--salvia)}
 .valor h3{
-  font-size:1.4rem;
-  color:var(--floresta);
+  font-size:1.35rem;
+  color:var(--papel);
   margin-bottom:.4rem;
   font-weight:400;
 }
 .valor p{
-  color:var(--suave);
-  font-size:.97rem;
+  color:rgba(236,230,214,.82);
+  font-size:.95rem;
   line-height:1.55;
-  max-width:36em;
+  margin:0;
 }
-.valor strong{color:var(--tinta);font-weight:500}
+.valor strong{
+  color:#fff;
+  font-weight:500;
+}
 
 /* ---------- ATENDIMENTO – soft strips ---------- */
 #atendimento{padding:4rem 0;background:var(--papel)}
@@ -324,26 +352,50 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:900px){
-  .hero .wrap,.valores-layout,.abo .wrap{grid-template-columns:1fr;gap:2rem}
+  .hero .wrap,.abo .wrap{grid-template-columns:1fr;gap:2rem}
   .selo{justify-self:center;width:min(72%,300px);order:-1}
-  .valores-media{position:static;max-height:380px;aspect-ratio:9/13}
   .formas,.duo,.posts{grid-template-columns:1fr}
   .forma,.pan{min-height:0}
   .fixo{position:static}
   .hero{min-height:auto;padding:5.5rem 0 3rem}
   .prop{padding:3.2rem 0 2.8rem}
-  .valores,#atendimento,.quem,.abo,.soc{padding:3.2rem 0}
+  #atendimento,.quem,.abo,.soc{padding:3.2rem 0}
   .ct{padding:3.5rem 0 3rem}
+
+  /* Valores – vídeo de fundo no mobile */
+  .valores{
+    min-height:auto;
+  }
+  .valores-content{
+    padding:3.2rem 0 3.6rem;
+  }
+  .valores-lista{
+    grid-template-columns:1fr;
+    gap:1.35rem;
+    max-width:100%;
+  }
+  .valores-overlay{
+    background:
+      linear-gradient(to bottom, rgba(10,31,24,.85) 0%, rgba(10,31,24,.8) 45%, rgba(10,31,24,.9) 100%);
+  }
+  .valor{padding-left:1rem}
+  .valor h3{font-size:1.28rem}
+  .valor p{font-size:.93rem}
 }
 
 @media(max-width:600px){
   .selo{width:min(78%,260px)}
-  .valores-media{max-height:320px}
   .pan .big{font-size:5.2rem}
   .post{display:grid;grid-template-columns:92px 1fr}
   .thumb{aspect-ratio:1;min-height:92px}
   .post-c{padding:.7rem .8rem}
   .post-c p{font-size:.84rem}
+
+  .valores-content{padding:2.8rem 0 3.2rem}
+  .valores .topo{margin-bottom:1.8rem}
+  .valores-lista{gap:1.2rem}
+  .valor h3{font-size:1.22rem}
+  .valor p{font-size:.9rem;line-height:1.5}
 }
 
 @media(prefers-reduced-motion:reduce){
