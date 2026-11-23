@@ -1,0 +1,26 @@
+/* Layout — grid, seções, ritmo vertical */
+.section{padding-block:var(--section-y)}
+.section--dark{background:var(--floresta);color:var(--papel)}
+.section--menta{background:color-mix(in srgb,var(--salvia) 28%,var(--papel))}
+.section--areia{background:var(--areia)}
+.section--papel{background:var(--papel)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:var(--s-3);
+  font-size:var(--text-xs);font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--suave);margin-bottom:var(--s-4);
+}
+.section--dark .eyebrow{color:var(--salvia)}
+.eyebrow::before{
+  content:"";width:1.5rem;height:1px;background:var(--verde);
+}
+.section--dark .eyebrow::before{background:var(--salvia)}
+
+.grid-12{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:var(--s-6) var(--s-4);
+}
+@media(max-width:768px){
+  .grid-12{grid-template-columns:repeat(4,1fr)}
+}
