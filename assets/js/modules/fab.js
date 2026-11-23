@@ -34,16 +34,27 @@ export function initFab(){
     if(!fab.contains(e.target)) close();
   });
 
-  // No primeiro ecrã o botão flutuante cobre os CTAs do hero;
-  // ele aparece depois de rolar além da abertura.
-  const hero=document.querySelector('.hero');
-  if(hero&&'IntersectionObserver' in window){
-    const io=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        fab.classList.toggle('is-hidden',entry.isIntersecting);
-        if(entry.isIntersecting) close();
-      });
-    },{threshold:.12});
-    io.observe(hero);
+  // O botão flutuante some no hero (onde já há CTAs) e na seção de contato
+  // (que repete WhatsApp e e-mail), para não cobrir conteúdo nem duplicar ações.
+  if('IntersectionObserver' in window){
+    const blockers=new Set();
+    const sync=()=>{
+      const hidden=blockers.size>0;
+      fab.classList.toggle('is-hidden',hidden);
+      if(hidden) close();
+    };
+    const watch=(el,key,opts)=>{
+      if(!el) return;
+      new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting) blockers.add(key);
+          else blockers.delete(key);
+          sync();
+        });
+      },opts).observe(el);
+    };
+    watch(document.querySelector('.hero'),'hero',{threshold:.12});
+    watch(document.getElementById('contato'),'contato',{threshold:.35});
+    watch(document.querySelector('.footer'),'footer',{threshold:.05});
   }
 }

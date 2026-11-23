@@ -85,3 +85,43 @@ do repositório, em desktop (1440, 1024), tablet (768) e mobile (390, 360), com 
   `aria-current`, sem erros de console/rede.
 - Sem JS: conteúdo visível.
 - `prefers-reduced-motion`: animações desligadas e conteúdo visível.
+
+---
+
+## Rodada 2 — conteúdo sempre visível e mobile refeito (nov/2026)
+
+Depois do deploy da rodada 1 o cliente reportou que o mobile seguia "quebrado" e pediu que
+nenhuma informação dependesse de clique. O diagnóstico foi duplo: (a) o navegador estava
+servindo CSS/JS antigos do cache; (b) os três blocos interativos (acordeão de Valores, tabs
+de Público e carrossel de Novidades) escondiam a maior parte do conteúdo.
+
+### O que mudou
+
+- **Zero interação obrigatória.** Acordeão, tabs e carrossel foram removidos do HTML, do CSS
+  e do JS. Valores são quatro artigos em grade (2 colunas → 1 no mobile), Público são dois
+  cartões (15+ e 18+) e Novidades são três cartões com imagem, rede e texto — todos legíveis
+  de imediato, sem clique e sem JavaScript.
+- **Cache-busting.** Todas as referências de CSS, JS, fontes e imagens passaram a levar
+  `?v=20261123b`; `vercel.json` mantém cache longo para assets versionados. Isso garante que
+  a próxima visita já carregue o layout novo.
+- **Hero mobile recomposto.** Até 900px: foto 260px (190px abaixo de 520px, 170px em telas
+  baixas), texto em uma coluna e faixa de informações em três colunas com divisórias. Tipografia
+  do título reduzida de forma fluida; nenhum elemento maior que a viewport.
+- **Bento de Atendimento** com cartões de altura automática no mobile (antes a altura mínima
+  fixa deixava buracos) e padding proporcional.
+- **Novidades em lista.** No mobile cada post virou uma linha com miniatura quadrada alinhada
+  ao texto; no desktop, três colunas com imagem 1:1.
+- **Detalhes de acabamento.** `.reveal` com rede de segurança também para rolagem rápida/âncoras
+  (nada fica invisível ao pular direto para uma seção); FAB escondido no hero, no contato e no
+  rodapé; alvos de toque de 40px nos links de contato; escala mínima de texto em 12.8px; anel
+  decorativo do Propósito animado só em opacidade (sem costura de rasterização); post sem
+  imagens cortadas (`cover` + miniatura quadrada) e ícone do Facebook redesenhado.
+
+### Verificações executadas (rodada 2)
+
+- 176 checagens automatizadas em Chromium, 14 larguras (320 → 1920): overflow horizontal,
+  vazamento de elementos, texto cortado, alvos de toque, fontes, imagens, âncoras, links
+  externos, console e rede sem erros.
+- Visibilidade sem clique de cada bloco: 4 valores, 2 públicos, 3 posts, 4 passos da TCC.
+- Sem JS e com `prefers-reduced-motion`: todo o conteúdo visível.
+- Screenshots revisados em 320, 390, 768, 1440 e 1920.
