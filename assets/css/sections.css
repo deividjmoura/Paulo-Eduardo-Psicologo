@@ -277,3 +277,73 @@ section{padding:clamp(3.25rem,6.5vw,5.75rem) 0}
   }
   .post-c { padding: .65rem .7rem; }
 }
+
+/* Logo como moldura / fundo da foto */
+.selo .logo-fundo{
+  position:absolute;
+  inset:-18%;
+  width:136%;
+  height:136%;
+  object-fit:contain;
+  opacity:.18;
+  pointer-events:none;
+  filter:brightness(1.15) saturate(.85);
+  animation:logo-suave 28s ease-in-out infinite alternate;
+}
+@keyframes logo-suave{
+  from{transform:scale(1) rotate(-4deg)}
+  to{transform:scale(1.06) rotate(4deg)}
+}
+.selo .retrato{
+  position:absolute;
+  inset:13%;
+  border-radius:50%;
+  overflow:hidden;
+  border:5px solid var(--salvia);
+  box-shadow:0 30px 70px rgba(0,0,0,.4);
+  background:var(--musgo);
+  z-index:1;
+}
+
+/* Seção Valores */
+.valores{background:var(--papel)}
+.valores-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.25rem;
+}
+.valor{
+  background:var(--areia-2);
+  border-radius:var(--raio);
+  padding:1.85rem 1.7rem;
+  border:1px solid rgba(14,43,34,.07);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.valor:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(14,43,34,.08);
+}
+.valor h3{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:1.55rem;
+  color:var(--floresta);
+  margin-bottom:.7rem;
+  letter-spacing:-.01em;
+}
+.valor p{
+  color:var(--suave);
+  font-size:.98rem;
+  line-height:1.55;
+}
+.valor strong{
+  color:var(--tinta);
+  font-weight:500;
+}
+@media(max-width:720px){
+  .valores-grid{grid-template-columns:1fr}
+  .selo .logo-fundo{inset:-12%;width:124%;height:124%;opacity:.14}
+}
+@media(prefers-reduced-motion:reduce){
+  .selo .logo-fundo{animation:none}
+}
