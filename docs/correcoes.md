@@ -153,3 +153,7 @@ Verificações: 178 checagens automatizadas (incluindo a escrita, 14 larguras e 
 Nota: as letras usam spans **inline** (sem `inline-block`) para que a quebra de linha e a
 extração do texto permaneçam idênticas ao parágrafo comum — o HTML nunca expõe duas cópias da
 frase, nem palavras coladas na indexação.
+
+O HTML só é dividido em letras quando a seção está a ~22% da viewport — antes disso o
+parágrafo é texto comum (o que rastreadores e usuários sem JS leem), e com o texto sempre
+com espaços normais. Versão dos assets: `?v=20261123e`.

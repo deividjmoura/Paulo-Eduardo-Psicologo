@@ -2,10 +2,10 @@
  * Escrita progressiva: o parágrafo aparece letra a letra, com um cursor,
  * como se estivesse sendo escrito à mão.
  *
- * A estrutura final volta a ser texto puro (bom para seleção e indexacao).
- * Durante a animacao o paragrafo expoe a frase inteira via aria-label e as letras
- * ficam aria-hidden, entao leitores de tela nao soletram o texto.
- * Sem JS ou com prefers-reduced-motion o texto simplesmente já está lá.
+ * O HTML original só é transformado quando a seção está prestes a entrar na
+ * tela — antes disso (e sem JS, ou com prefers-reduced-motion) ele é um
+ * parágrafo comum, com o texto inteiro e os espaços normais. Ao terminar a
+ * animação, volta a ser texto puro.
  */
 export function initWrite(){
   const el=document.querySelector('[data-write]');
@@ -16,71 +16,76 @@ export function initWrite(){
 
   const original=el.textContent.replace(/\s+/g,' ').trim();
 
-  const chars=document.createElement('span');
-  chars.className='write__chars';
-  chars.setAttribute('aria-hidden','true');
-
-  const letters=[];
-  original.split(' ').forEach((word,wi,words)=>{
-    const w=document.createElement('span');
-    w.className='w';
-    [...word].forEach(char=>{
-      const s=document.createElement('span');
-      s.className='ch';
-      s.textContent=char;
-      w.appendChild(s);
-      letters.push(s);
-    });
-    chars.appendChild(w);
-    if(wi<words.length-1) chars.appendChild(document.createTextNode(' '));
-  });
-
-  el.textContent='';
-  el.appendChild(chars);
-  el.setAttribute('aria-label',original);
-  el.classList.add('is-prepared');
-
-  const caret=document.createElement('span');
-  caret.className='write-caret';
-  caret.setAttribute('aria-hidden','true');
-  el.appendChild(caret);
-
+  let state=null;
   let started=false;
-  const start=()=>{
-    if(started) return;
-    started=true;
-    io.disconnect();
-    type();
-  };
 
   const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{ if(entry.isIntersecting) start(); });
-  },{threshold:.25});
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      io.disconnect();
+      start();
+    });
+  },{threshold:0,rootMargin:'0px 0px 22% 0px'});
   io.observe(el);
 
-  // Rede de segurança: se o observer não disparar, começa assim que estiver visível.
-  // Se a seção já foi ultrapassada (salto por âncora), mostra o texto sem animação.
-  const fallback=()=>{
-    if(started) return;
-    const r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight&&r.bottom>0){
-      start();
-    }else if(r.bottom<=0){
-      finish(false);
-      window.removeEventListener('scroll',fallback);
-    }
-  };
-  window.addEventListener('scroll',fallback,{passive:true});
-  setTimeout(fallback,1200);
+  function build(){
+    const chars=document.createElement('span');
+    chars.className='write__chars';
+    chars.setAttribute('aria-hidden','true');
+
+    const letters=[];
+    original.split(' ').forEach((word,wi,words)=>{
+      const w=document.createElement('span');
+      w.className='w';
+      [...word].forEach(char=>{
+        const s=document.createElement('span');
+        s.className='ch';
+        s.textContent=char;
+        w.appendChild(s);
+        letters.push(s);
+      });
+      chars.appendChild(w);
+      if(wi<words.length-1) chars.appendChild(document.createTextNode(' '));
+    });
+
+    el.textContent='';
+    el.appendChild(chars);
+    el.setAttribute('aria-label',original);
+    el.classList.add('is-prepared');
+
+    const caret=document.createElement('span');
+    caret.className='write-caret';
+    caret.setAttribute('aria-hidden','true');
+    el.appendChild(caret);
+
+    return {letters,caret};
+  }
 
   function placeCaret(index){
+    const {letters,caret}=state;
     const target=letters[Math.min(index,letters.length-1)];
     if(!target) return;
     caret.style.transform=`translate(${target.offsetLeft+target.offsetWidth}px,${target.offsetTop}px)`;
   }
 
+  function finish(animateCaret){
+    if(!state) return;
+    const caret=state.caret;
+    if(animateCaret){
+      caret.style.opacity='0';
+      caret.style.transition='opacity .35s linear';
+    }
+    setTimeout(()=>{
+      caret.remove();
+      el.classList.remove('is-prepared');
+      el.removeAttribute('aria-label');
+      el.textContent=original;
+      state=null;
+    },animateCaret?420:0);
+  }
+
   function type(){
-    const total=letters.length;
+    const total=state.letters.length;
     const duration=Math.min(2600,Math.max(1100,total*6.5));
     const t0=performance.now();
     let shown=0;
@@ -89,8 +94,8 @@ export function initWrite(){
     const step=now=>{
       const progress=Math.min(1,(now-t0)/duration);
       const target=Math.ceil(progress*total);
-      while(shown<target){
-        letters[shown].classList.add('on');
+      while(shown<target&&shown<total){
+        state.letters[shown].classList.add('on');
         shown++;
       }
       if(shown<total){
@@ -104,20 +109,10 @@ export function initWrite(){
     requestAnimationFrame(step);
   }
 
-  let finished=false;
-  function finish(animateCaret){
-    if(finished) return;
-    finished=true;
-    if(animateCaret){
-      caret.style.opacity='0';
-      caret.style.transition='opacity .35s linear';
-    }
-    setTimeout(()=>{
-      caret.remove();
-      // volta ao texto puro: seleção natural e sem 300 elementos no DOM
-      el.classList.remove('is-prepared');
-      el.removeAttribute('aria-label');
-      el.textContent=original;
-    },animateCaret?420:0);
+  function start(){
+    if(started) return;
+    started=true;
+    state=build();
+    type();
   }
 }
