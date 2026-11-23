@@ -125,3 +125,27 @@ de Público e carrossel de Novidades) escondiam a maior parte do conteúdo.
 - Visibilidade sem clique de cada bloco: 4 valores, 2 públicos, 3 posts, 4 passos da TCC.
 - Sem JS e com `prefers-reduced-motion`: todo o conteúdo visível.
 - Screenshots revisados em 320, 390, 768, 1440 e 1920.
+
+---
+
+## Ajuste — propósito com escrita progressiva (nov/2026)
+
+Pedido do cliente: "quero que as letras surjam como uma escrita e use uma fonte com um pouco
+mais de delicadeza".
+
+- **Tipografia.** O parágrafo do Propósito saiu da Bricolage (sans, com tracking negativo)
+  para a **Instrument Serif itálica** — a mesma serifada usada nos acentos editoriais do site,
+  já autohospedada e pré-carregada, sem requisição nova. Corpo maior
+  (`clamp(1.75rem, 1.15rem + 2.1vw, 3rem)`), entrelinha 1.3 e medida de 56rem.
+- **Escrita letra a letra.** Novo módulo `assets/js/modules/write.js`: o texto é dividido em
+  palavras e letras e aparece progressivamente (≈1,1–2,6 s, ritmo proporcional ao tamanho),
+  com um cursor verde que acompanha a "ponta da caneta" e pisca. Dispara quando a seção entra
+  na viewport (IntersectionObserver), com rede de segurança para rolagem rápida e âncoras.
+- **Sem custo depois da animação.** Ao terminar, o DOM volta a ser o parágrafo em texto puro
+  (seleção e cópia normais, sem 174 spans). Durante a animação existe uma cópia visualmente
+  oculta para leitores de tela, então a leitura assistiva não muda.
+- **Fallbacks.** `prefers-reduced-motion`, navegador sem IntersectionObserver ou JS desligado:
+  o texto simplesmente já está visível, sem animação.
+
+Verificações: 178 checagens automatizadas (incluindo a escrita, 14 larguras e reduced motion),
+0 falhas; screenshots revisados em 320, 390, 768, 1440 e 1920.

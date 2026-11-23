@@ -46,7 +46,9 @@ Vercel a partir do repositório GitHub. Preview em PRs.
 JS. Menu mobile com `inert`, foco preso e Esc. Alvos de toque de 44px.
 
 Não há conteúdo escondido atrás de clique: valores, públicos e publicações ficam todos
-abertos na página. Ao alterar CSS, JS, fontes ou imagens, atualize o `?v=` das referências
+abertos na página. O parágrafo do Propósito é escrito letra a letra ao entrar na tela
+(`modules/write.js`); a animação é decorativa e o texto fica inteiro sem JS ou com
+`prefers-reduced-motion`. Ao alterar CSS, JS, fontes ou imagens, atualize o `?v=` das referências
 no `index.html` (e em `base.css`/`posts.json`) para furar o cache.
 
 ### Correções
